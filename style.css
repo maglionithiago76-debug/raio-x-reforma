@@ -42,9 +42,11 @@ section { padding: clamp(56px, 9vw, 120px) clamp(16px, 6vw, 96px); }
 .seta { font-size: 56px; color: var(--acento); }
 .painel { background: var(--neutro); color: var(--base); border-radius: 16px; padding: 24px; }
 .painel__topo { font-weight: 700; margin-bottom: 14px; } .painel__topo small { color: var(--suave); font-weight: 400; }
-.barra { display: grid; grid-template-columns: 52px 1fr 110px; gap: 10px; align-items: center; margin: 10px 0; font-size: 16px; }
+.barra { display: grid; grid-template-columns: 140px 1fr 96px; gap: 10px; align-items: center; margin: 10px 0; font-size: 16px; }
 .barra i { display: block; height: 22px; border-radius: 6px; background: var(--base); width: 0; transition: width 1.2s cubic-bezier(.2, .7, .2, 1) .5s; }
 .cena.ativa .barra i { width: var(--w); }
+.barra:not(.barra--neg) i { background: var(--acento); }
+.barra--neg span { color: var(--base); }
 .barra span { font-weight: 700; text-align: right; }
 .painel__pe { margin-top: 12px; font-size: 14px; color: var(--suave); }
 .cena__nota { color: #c9cfdc; margin-top: 24px; max-width: 760px; }
@@ -87,7 +89,7 @@ section { padding: clamp(56px, 9vw, 120px) clamp(16px, 6vw, 96px); }
   .nav__links .pilula:not(.pilula--acento) { display: none; }
   .cena__palco { grid-template-columns: 1fr; } .seta { transform: rotate(90deg); justify-self: center; }
   .cards, .paginas { grid-template-columns: 1fr; }
-  .barra { grid-template-columns: 44px 1fr 96px; font-size: 14px; }
+  .barra { grid-template-columns: 112px 1fr 80px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__titulo .linha { animation: none; opacity: 1; transform: none; }
