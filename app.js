@@ -12,6 +12,7 @@
   document.querySelectorAll("[data-pagar]").forEach(function (a) {
     if (c.pagar) { a.href = c.pagar; a.target = "_blank"; a.rel = "noopener"; } else { a.style.display = "none"; }
   });
+  if (c.vendedor) document.querySelectorAll("[data-vendedor]").forEach(function (s) { s.textContent = c.vendedor; });
   if (c.whatsapp) {
     var p = c.whatsapp.slice(2), fone = "(" + p.slice(0, 2) + ") " + p.slice(2, -4) + "-" + p.slice(-4);
     document.querySelectorAll("[data-fone]").forEach(function (s) { s.textContent = fone; });
