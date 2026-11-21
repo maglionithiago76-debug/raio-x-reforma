@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The lock behind "as notas não saem deste computador": this page may only talk to its own site and to the two
+     public CNPJ sources below. The browser itself blocks anything else. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://brasilapi.com.br https://minhareceita.org; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Prévia local · Raio-X da Reforma</title>
+<meta name="description" content="Para contadores: veja quanto das vendas de um cliente do Simples vai pra quem aproveita crédito de IBS/CBS. Os XMLs são lidos no seu navegador e não são enviados.">
+<meta name="theme-color" content="#14213d">
+<meta property="og:title" content="Prévia local · Raio-X da Reforma">
+<meta property="og:description" content="Pra quem o seu cliente do Simples vende? Os XMLs são lidos no seu navegador e não saem do seu computador.">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="../img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="previa.css">
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../" aria-label="Raio-X da Reforma, página inicial"><span class="marca__selo" aria-hidden="true">RX</span>Raio-X da Reforma</a>
+  <span class="etiqueta">Prévia local · grátis</span>
+</header>
+
+<main>
+<section class="abre">
+  <p class="rotulo">Para escritórios de contabilidade com clientes no Simples Nacional</p>
+  <h1>Pra quem o seu cliente vende?</h1>
+  <p class="sub">Arraste os XMLs de NF-e/NFS-e de um cliente. Em instantes você vê quanto das vendas vai pra empresa que aproveita crédito de IBS/CBS, comprador por comprador. A leitura é feita aqui, no seu navegador.</p>
+  <ul class="garantias">
+    <li><b>As notas não saem deste computador.</b> Nada é enviado pra nós nem pra ninguém.</li>
+    <li><b>Só o número do CNPJ dos compradores</b> é consultado na base pública de CNPJ, direto do seu navegador. Dá pra desligar.</li>
+    <li><b>Grátis</b>, com quantos clientes você quiser. Nada fica salvo: ao fechar a página, some.</li>
+  </ul>
+</section>
+
+<section class="cartao" id="entrada" aria-labelledby="t-entrada">
+  <h2 id="t-entrada">1. Os XMLs do cliente</h2>
+  <div class="solta" id="solta" tabindex="0" role="button" aria-describedby="solta-dica">
+    <p class="solta__titulo">Arraste aqui o .zip ou os .xml</p>
+    <p id="solta-dica">Vendas e compras, de 3 a 12 meses. NF-e, NFC-e e NFS-e.</p>
+    <button type="button" class="botao" id="escolher">Escolher arquivos</button>
+    <input type="file" id="arquivos" multiple accept=".xml,.zip,application/zip,text/xml,application/xml" hidden>
+  </div>
+  <label class="opcao"><input type="checkbox" id="consultar" checked> Consultar o regime dos compradores na base pública de CNPJ (BrasilAPI e Minha Receita). Só o número do CNPJ vai nessa consulta.</label>
+  <p class="acoes"><button type="button" class="botao botao--linha" id="demo">Ver com a empresa fictícia do exemplo</button></p>
+  <p class="aviso" id="status" role="status" aria-live="polite"></p>
+</section>
+
+<section class="cartao" id="resultado" hidden aria-labelledby="t-resultado">
+  <h2 id="t-resultado">2. O que as notas mostram</h2>
+  <p class="exemplo" id="eh-exemplo" hidden>EXEMPLO COM EMPRESA FICTÍCIA. Os números ilustram a prévia, não se referem a ninguém real.</p>
+  <p id="empresa-linha"></p>
+  <p class="opcao" id="varias" hidden><label>Os arquivos têm notas emitidas por mais de um CNPJ. Empresa analisada: <select id="emissor"></select></label></p>
+
+  <div class="numeros">
+    <div class="numero numero--forte"><b id="n-credito">–</b><span>das vendas vão pra empresas fora do Simples, que aproveitam crédito</span></div>
+    <div class="numero"><b id="n-vendas">–</b><span id="n-vendas-nota">vendas por ano (projeção pelas notas)</span></div>
+    <div class="numero"><b id="n-incerto">–</b><span>das vendas pra CNPJ sem consulta</span></div>
+  </div>
+  <p class="aviso" id="progresso" role="status" aria-live="polite"></p>
+
+  <h3>Pra quem ele vende</h3>
+  <div class="rolagem"><table id="t-grupos"><thead><tr><th>Tipo de comprador</th><th>Vendas/ano</th><th>%</th></tr></thead><tbody></tbody></table></div>
+
+  <h3>Maiores compradores</h3>
+  <div class="rolagem"><table id="t-compradores"><thead><tr><th>CNPJ</th><th>Nome na base pública</th><th>Situação</th><th>Vendas no período</th><th>%</th></tr></thead><tbody></tbody></table></div>
+  <p class="pequeno" id="mais-compradores"></p>
+
+  <h3>De quem ele compra</h3>
+  <div class="rolagem"><table id="t-compras"><tbody></tbody></table></div>
+
+  <div class="leitura">
+    <p><b>Como ler.</b> Quanto maior a fatia vendida pra empresas fora do Simples, mais o IBS/CBS por fora tende a pesar a favor, porque esses compradores passam a aproveitar o crédito cheio. A partir de que percentual compensa muda de empresa pra empresa: depende do anexo, da faixa do Simples e das compras. No exemplo fictício do nosso site, esse ponto foi 70%.</p>
+    <p class="pequeno">Limites: a base pública diz se o comprador é do Simples ou MEI, mas não diz se uma empresa do Simples optou pelo IBS/CBS por fora (ela também aproveita crédito); confirme com os maiores compradores. Órgão público, associação, condomínio e pessoa física com CNPJ não entram como quem aproveita crédito. Entram só notas de venda e de compra autorizadas; remessas são ignoradas e devoluções, descontadas. Isto é apoio pra sua análise, não substitui a sua revisão.</p>
+  </div>
+  <details><summary>Arquivos e itens ignorados</summary><p class="pequeno" id="ignorados"></p></details>
+</section>
+
+<section class="cartao cartao--escuro" id="pedido" hidden aria-labelledby="t-pedido">
+  <h2 id="t-pedido">3. Quer o resultado em reais, de 2027 a 2033?</h2>
+  <p>O relatório completo mostra o ponto de equilíbrio desta empresa e o ganho ou a perda com o IBS/CBS por fora em 2027, 2029, 2031 e 2033, num PDF com o nome do seu escritório. <b>O primeiro é grátis</b>; depois, <span id="preco">R$ 49</span> por relatório.</p>
+  <p>Você não precisa mandar as notas. Baixe o <b>resumo</b> (só totais) e envie no nosso WhatsApp.</p>
+  <div class="campos">
+    <label>Nome da empresa (como sai no PDF)<input type="text" id="f-empresa" maxlength="80" autocomplete="off"></label>
+    <label>Anexo do Simples hoje
+      <select id="f-anexo">
+        <option value="">Escolha</option>
+        <option value="I">Anexo I · comércio</option>
+        <option value="II">Anexo II · indústria</option>
+        <option value="III">Anexo III · serviços</option>
+        <option value="IV">Anexo IV · serviços</option>
+        <option value="V">Anexo V · serviços</option>
+      </select>
+    </label>
+    <label>Nome do escritório (como sai no PDF)<input type="text" id="f-escritorio" maxlength="80" autocomplete="organization"></label>
+  </div>
+  <p class="acoes">
+    <button type="button" class="botao botao--acento" id="baixar">Baixar o resumo</button>
+    <a class="botao botao--linha" id="zap" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+  </p>
+  <p class="aviso" id="pedido-status" role="status" aria-live="polite"></p>
+  <p class="pequeno">O resumo leva os totais por mês, por produto (NCM ou NBS, com a descrição do item) e por tipo de comprador, o CNPJ da empresa analisada e o que você digitou acima. Não leva as notas, nem CNPJ ou nome de comprador e de fornecedor, nem CPF.</p>
+  <details><summary>Ver o conteúdo do resumo antes de enviar</summary><pre id="ver-resumo"></pre></details>
+</section>
+
+<section class="cartao" id="carteira" hidden aria-labelledby="t-carteira">
+  <h2 id="t-carteira">Clientes que você já olhou nesta sessão</h2>
+  <div class="rolagem"><table id="t-carteira-lista"><thead><tr><th>Empresa</th><th>Vendas/ano</th><th>% pra quem aproveita crédito</th><th>% sem consulta</th></tr></thead><tbody></tbody></table></div>
+  <p class="acoes"><button type="button" class="botao" id="outro">Analisar outro cliente</button></p>
+  <p class="pequeno">A lista fica só na memória desta página e some quando você fecha ou recarrega.</p>
+</section>
+</main>
+
+<footer class="rodape">
+  <p>Raio-X da Reforma · simulação de apoio para contadores · WhatsApp <span data-fone></span></p>
+  <p>Responsável: <span data-vendedor>(em definição)</span> · <a href="../termos.html">Termos, reembolso e privacidade (LGPD)</a></p>
+  <p>Esta página não usa cookies, cadastro nem rastreamento. Não somos a Receita Federal nem falamos em nome dela.</p>
+</footer>
+
+<script src="../config.js"></script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
