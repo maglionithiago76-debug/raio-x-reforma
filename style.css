@@ -82,8 +82,8 @@ section { padding: 0 var(--m); margin-top: var(--gap); }
 
 /* deadline */
 .prazo { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; }
-.prazo__lado { grid-column: 1 / span 5; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
-.prazo__txt { grid-column: 7 / span 6; }
+.prazo__lado { grid-column: 1 / span 4; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.prazo__txt { grid-column: 6 / span 7; }
 .frase { font: 300 var(--stmt)/1.22 var(--display); font-variation-settings: "opsz" 60; }
 .nota { color: var(--muted); max-width: 44ch; font-size: 1rem; }
 
@@ -124,7 +124,7 @@ section { padding: 0 var(--m); margin-top: var(--gap); }
 /* three reasons */
 .tres { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; row-gap: 40px; }
 .tres h2 { grid-column: 1 / span 8; }
-.tres__cols { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px clamp(24px, 4vw, 64px); }
+.tres__cols { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px clamp(24px, 4vw, 64px); }
 .tres__cols p { margin-top: 12px; color: var(--muted); max-width: 36ch; }
 
 /* the report page with notes in both margins */
@@ -184,7 +184,7 @@ section { padding: 0 var(--m); margin-top: var(--gap); }
 .preco dl > div { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: baseline; margin-bottom: 22px; }
 .preco dt, .preco dd { font-size: var(--body); }
 .preco dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; color: var(--accent); }
-.preco dl p { grid-column: 1 / -1; margin-top: 4px; font-size: 1rem; color: var(--muted); max-width: 36ch; }
+.preco dd.desc { grid-column: 1 / -1; margin-top: 4px; font-size: 1rem; color: var(--muted); max-width: 36ch; text-align: left; }
 .preco__pe { grid-column: 5 / span 8; color: var(--muted); }
 .preco__pe a { color: var(--ink); margin-left: 8px; }
 
@@ -245,11 +245,12 @@ section { padding: 0 var(--m); margin-top: var(--gap); }
   .ex { row-gap: 32px; }
   .ex__valor, .fim__t span { font-size: 16.5vw; }
   .seg span { padding: 13px 14px; }
-  .tres__cols { grid-template-columns: 1fr; }
   .rel { grid-template-columns: 1fr; row-gap: 40px; }
   .rel__notas--e { text-align: left; align-items: flex-start; }
   .rel__folha { max-width: 420px; width: 100%; justify-self: center; }
-  .rel__notas--d { display: grid; grid-template-columns: 1fr; }
+  .rel__notas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 32px; }
+  .rel__notas li { max-width: none; }
+  .rel__notas .rel__titulo { grid-column: 1 / -1; }
   .como__etapas > li, .js .como__etapas > li.on { grid-template-columns: 1fr; min-height: 0; }
   .como__frag { order: -1; min-height: 44svh; }
   .como__texto h3 { max-width: 13ch; }
