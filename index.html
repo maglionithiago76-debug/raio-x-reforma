@@ -4,146 +4,242 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raio-X da Reforma · Simples ou IBS/CBS por fora, cliente a cliente</title>
-<meta name="description" content="Para escritórios de contabilidade: a partir dos XMLs de NF-e/NFS-e, um PDF com a sua marca comparando Simples x IBS/CBS por fora, quais clientes dele aproveitam crédito, ponto de equilíbrio e resultado ano a ano de 2027 a 2033.">
-<meta name="theme-color" content="#14213d">
+<meta name="description" content="Para escritórios de contabilidade: a partir dos XMLs de NF-e/NFS-e, um PDF com o nome do seu escritório comparando Simples x IBS/CBS por fora: quanto das vendas vai pra quem aproveita crédito, ponto de equilíbrio e resultado em 2027, 2029, 2031 e 2033.">
+<meta name="theme-color" content="#0a1016">
 <meta property="og:title" content="Raio-X da Reforma · Simples ou IBS/CBS por fora?">
-<meta property="og:description" content="A resposta de cada cliente do Simples, num PDF com a marca do seu escritório. 3 relatórios grátis.">
+<meta property="og:description" content="A resposta de cada cliente do Simples, num PDF com o nome do seu escritório. O primeiro relatório é grátis.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://maglionithiago76-debug.github.io/raio-x-reforma/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://maglionithiago76-debug.github.io/raio-x-reforma/exemplo/pg-1.png">
 <link rel="canonical" href="https://maglionithiago76-debug.github.io/raio-x-reforma/">
 <link rel="icon" href="img/icon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/fraunces-normal-100-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hankengrotesk-normal-400-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
-<header class="nav">
-  <a class="marca" href="#topo" aria-label="Raio-X da Reforma, início"><span class="marca__selo" aria-hidden="true">RX</span>Raio-X da Reforma</a>
-  <nav class="nav__links" aria-label="Principal">
-    <a class="pilula" href="#como">Como funciona</a>
-    <a class="pilula" href="#preco">Preço</a>
-    <a class="pilula pilula--acento" data-wa="Oi! Quero testar o relatório grátis do Raio-X da Reforma." href="#">1 grátis</a>
+<header class="top">
+  <a class="top__name" href="#topo">Raio-X da Reforma</a>
+  <nav class="top__nav" aria-label="Principal">
+    <a href="#exemplo">O exemplo</a>
+    <a href="#como">Como funciona</a>
+    <a href="#preco">Preço</a>
+    <a href="previa/">Prévia grátis</a>
   </nav>
 </header>
 
 <main id="topo">
 
-<section class="hero" aria-labelledby="hero-titulo">
-  <p class="rotulo">Para escritórios de contabilidade com clientes no Simples Nacional</p>
-  <h1 class="hero__titulo" id="hero-titulo">
-    <span class="linha">Simples ou</span>
-    <span class="linha">IBS/CBS por fora?</span>
-    <span class="linha linha--acento">Depende de quem compra dele.</span>
-  </h1>
-  <p class="hero__sub">Você manda os XMLs de NF-e/NFS-e do cliente. A gente devolve um PDF com a marca do seu escritório: quais clientes dele aproveitam crédito, o ponto de equilíbrio e o resultado ano a ano de 2027 a 2033. Pronto pra você revisar e apresentar.</p>
-  <div class="hero__acoes">
-    <a class="pilula pilula--acento pilula--g" data-wa="Oi! Quero testar os 3 relatórios grátis do Raio-X da Reforma." href="#">Quero 3 relatórios grátis</a>
-    <a class="pilula pilula--linha pilula--g" href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener">Ver um exemplo (PDF)</a>
-  </div>
-  <p class="rotulo hero__nota">Sem cartão. O primeiro é por nossa conta.</p>
-</section>
-
-<section class="cena" aria-label="Como os XMLs viram o relatório">
-  <div class="cena__palco">
-    <div class="xmls" aria-hidden="true">
-      <p class="xml"><span>&lt;NFe&gt;</span> venda · CNPJ cliente · R$ 18.240,00</p>
-      <p class="xml"><span>&lt;NFe&gt;</span> venda · CNPJ cliente · R$ 2.910,00</p>
-      <p class="xml"><span>&lt;NFe&gt;</span> compra · fornecedor regime regular</p>
-      <p class="xml"><span>&lt;NFe&gt;</span> venda · consumidor final · R$ 1.140,00</p>
-      <p class="xml"><span>&lt;NFSe&gt;</span> serviço · CNPJ cliente</p>
-    </div>
-    <div class="seta" aria-hidden="true">→</div>
-    <div class="painel" aria-hidden="true">
-      <p class="painel__topo">2027 com IBS/CBS por fora <small>(exemplo fictício)</small></p>
-      <div class="barra barra--neg"><b>Ninguém credita</b><i style="--w:100%"></i><span>−R$ 63 mil</span></div>
-      <div class="barra barra--neg"><b>Clientes de hoje</b><i style="--w:27%"></i><span>−R$ 17 mil</span></div>
-      <div class="barra"><b>Todo CNPJ credita</b><i style="--w:39%"></i><span>+R$ 25 mil</span></div>
-      <p class="painel__pe"><b>Ponto de equilíbrio:</b> só compensa se 70% das vendas forem pra quem aproveita crédito. Hoje são 52%.</p>
-    </div>
-  </div>
-  <p class="rotulo cena__nota">Números do relatório de exemplo, feito com uma empresa fictícia. Aqui ficar no Simples ganhou; em quem vende mais pra empresas fora do Simples, pode dar o contrário. Por isso a conta é cliente a cliente.</p>
-</section>
-
-<section class="porque" aria-labelledby="porque-titulo">
-  <h2 class="secao__titulo" id="porque-titulo">Por que cliente a cliente</h2>
-  <div class="cards">
-    <article><h3>Quem vende pra empresa</h3><p>No DAS, o cliente dele aproveita pouco crédito de IBS/CBS. Por fora, aproveita tudo. Isso mexe em preço e em contrato.</p></article>
-    <article><h3>Quem vende pra consumidor final</h3><p>Crédito não importa pro consumidor. Recolher por fora pode só aumentar a conta.</p></article>
-    <article><h3>Quem compra de quem</h3><p>Fornecedor do regime regular gera crédito por fora; fornecedor do Simples, quase nada. Só os XMLs mostram o peso de cada um.</p></article>
+<section class="hero" aria-labelledby="hero-nome">
+  <a class="hero__obj" href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener" aria-label="Abrir o relatório de exemplo em PDF">
+    <img class="on" src="exemplo/pg-1.webp" width="909" height="1286" alt="Página 1 do relatório de exemplo: resumo, ponto de equilíbrio e ganho ou perda por ano" fetchpriority="high">
+    <img src="exemplo/pg-2.webp" width="909" height="1286" alt="Página 2 do relatório de exemplo: para quem a empresa vende e a tabela ano a ano" loading="lazy">
+    <img src="exemplo/pg-3.webp" width="909" height="1286" alt="Página 3 do relatório de exemplo: alíquotas usadas e prazos da opção" loading="lazy">
+  </a>
+  <h1 class="hero__nome" id="hero-nome"><span>Raio-X</span> <span>da Reforma</span></h1>
+  <p class="hero__frase">Simples ou IBS/CBS por fora? A resposta de cada cliente seu, num PDF com o nome do seu escritório.</p>
+  <div class="hero__linha">
+    <span>Para escritórios de contabilidade</span>
+    <a class="btn" data-wa="Oi! Quero testar o relatório grátis do Raio-X da Reforma." href="#preco">Quero meu relatório grátis</a>
+    <span>O primeiro é por nossa conta, com um cliente real seu</span>
   </div>
 </section>
 
-<section class="como" id="como" aria-labelledby="como-titulo">
-  <h2 class="secao__titulo" id="como-titulo">Como funciona</h2>
-  <ol class="passos">
-    <li><b>Você manda os XMLs no WhatsApp.</b><span>Vendas e compras de 3 a 12 meses do cliente, num .zip. Diz o anexo do Simples e pronto.</span></li>
-    <li><b>A gente faz a conta item a item.</b><span>IBS/CBS nas calculadoras de código aberto publicadas pela Receita Federal (regime regular e Simples Nacional) e o regime de cada cliente pela base pública de CNPJ.</span></li>
-    <li><b>Você recebe o PDF com a sua marca.</b><span>Revisa, assina e apresenta. Os XMLs são apagados logo depois da entrega.</span></li>
+<section class="prazo" aria-labelledby="prazo-t">
+  <div class="prazo__lado">
+    <h2 id="prazo-t" data-r>O prazo que importa agora</h2>
+    <p class="nota" data-ate="2026-12-20" data-r>Res. CGSN 194/2026. Depois disso, a próxima janela de opção é março de 2027, com efeitos no 2º semestre (LC 123, art. 13, §10; os dias exatos saem em resolução do CGSN).</p>
+    <p class="nota" data-desde="2026-12-21" data-r>LC 123, art. 13, §10. Os dias exatos saem em resolução do CGSN.</p>
+  </div>
+  <div class="prazo__txt">
+    <p class="frase" data-ate="2026-12-20" data-r>Optou pelo IBS/CBS por fora pra algum cliente até 30/10? Dá pra cancelar até 20/12/2026, e o cancelamento é irretratável.</p>
+    <p class="frase" data-desde="2026-12-21" data-r>A próxima janela de opção é março de 2027, com efeitos no 2º semestre. Dá tempo de chegar com a conta de cada cliente pronta.</p>
+  </div>
+</section>
+
+<section class="ex" id="exemplo" aria-labelledby="ex-t">
+  <div class="ex__cab">
+    <h2 id="ex-t" data-r>O exemplo, cenário por cenário</h2>
+    <p data-r>A Metalúrgica Exemplo Ltda é fictícia e os números são os do PDF de exemplo. Escolha o ano e quem aproveita crédito.</p>
+  </div>
+  <div class="ex__painel" data-ui data-r>
+    <fieldset class="seg">
+      <legend>Ano</legend>
+      <label><input type="radio" name="ano" value="2027" checked><span>2027</span></label>
+      <label><input type="radio" name="ano" value="2029"><span>2029</span></label>
+      <label><input type="radio" name="ano" value="2031"><span>2031</span></label>
+      <label><input type="radio" name="ano" value="2033"><span>2033</span></label>
+    </fieldset>
+    <fieldset class="seg">
+      <legend>Quem aproveita crédito</legend>
+      <label><input type="radio" name="cen" value="0"><span>Ninguém</span></label>
+      <label><input type="radio" name="cen" value="1" checked><span>Os compradores de hoje</span></label>
+      <label><input type="radio" name="cen" value="2"><span>Todo comprador com CNPJ</span></label>
+    </fieldset>
+  </div>
+  <div class="ex__saida" aria-live="polite">
+    <p class="ex__valor" id="ex-valor" data-r>−R$ 16.869</p>
+    <p class="ex__leitura" id="ex-leitura" data-r>por ano recolhendo o IBS/CBS por fora, em 2027, com os compradores como estão hoje. Neste exemplo, ficar com tudo no DAS tende a favorecer.</p>
+  </div>
+  <div class="ex__faixas" data-ui data-r>
+    <p class="ex__faixas-t">Ganho ou perda por ano recolhendo por fora: do cenário em que ninguém aproveita crédito ao cenário em que todo comprador com CNPJ aproveita</p>
+    <ol id="ex-faixas">
+      <li data-ano="2027"><b>2027</b><span class="faixa"><i class="faixa__zero"></i><i class="faixa__barra"></i><i class="faixa__marca"></i></span><em>−R$ 16.869</em></li>
+      <li data-ano="2029"><b>2029</b><span class="faixa"><i class="faixa__zero"></i><i class="faixa__barra"></i><i class="faixa__marca"></i></span><em>−R$ 18.348</em></li>
+      <li data-ano="2031"><b>2031</b><span class="faixa"><i class="faixa__zero"></i><i class="faixa__barra"></i><i class="faixa__marca"></i></span><em>−R$ 20.825</em></li>
+      <li data-ano="2033"><b>2033</b><span class="faixa"><i class="faixa__zero"></i><i class="faixa__barra"></i><i class="faixa__marca"></i></span><em>−R$ 25.185</em></li>
+    </ol>
+    <p class="ex__pe" id="ex-pe">Ponto de equilíbrio em 2027: só compensa se pelo menos 70% das vendas forem pra quem aproveita crédito. Hoje são 52%.</p>
+  </div>
+  <p class="ex__nota" data-r>Aqui ficar no Simples ganhou. Em quem vende mais pra empresas fora do Simples, pode dar o contrário. Por isso a conta é cliente a cliente. <a href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener">Abrir o PDF de exemplo, 4 páginas</a></p>
+</section>
+
+<section class="tres" aria-labelledby="tres-t">
+  <h2 id="tres-t" data-r>Três coisas mudam a resposta</h2>
+  <div class="tres__cols">
+    <div data-r><h3>Pra quem ele vende</h3><p>Comprador que é empresa fora do Simples aproveita pouco crédito se o seu cliente recolhe no DAS, e o crédito cheio se ele recolhe por fora. Isso mexe em preço e em contrato.</p></div>
+    <div data-r><h3>Se vende pra consumidor final</h3><p>Crédito não importa pro consumidor. Recolher por fora pode só aumentar a conta.</p></div>
+    <div data-r><h3>De quem ele compra</h3><p>Fornecedor do regime regular gera crédito por fora; fornecedor do Simples, quase nada. Só os XMLs mostram o peso de cada um.</p></div>
+  </div>
+</section>
+
+<section class="rel" aria-labelledby="rel-t">
+  <ul class="rel__notas rel__notas--e">
+    <li class="rel__titulo"><h2 id="rel-t" data-r>O que vem no relatório</h2></li>
+    <li data-r><h3>Resumo na página 1</h3><p>Qual caminho tende a favorecer o seu cliente, em 2027 e com a reforma completa.</p></li>
+    <li data-r><h3>Ponto de equilíbrio</h3><p>A partir de que fatia das vendas pra quem aproveita crédito o IBS/CBS por fora compensa.</p></li>
+    <li data-r><h3>Três cenários por ano</h3><p>Ninguém credita, compradores de hoje e todo CNPJ credita, em 2027, 2029, 2031 e 2033.</p></li>
+  </ul>
+  <a class="rel__folha" href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener" data-r>
+    <img src="exemplo/pg-1.webp" width="909" height="1286" alt="Página 1 do relatório de exemplo, com o resumo, os três números da empresa e a faixa de resultado por ano" loading="lazy">
+  </a>
+  <ul class="rel__notas rel__notas--d">
+    <li data-r><h3>Pra quem ele vende</h3><p>Quanto vai pra empresa fora do Simples, empresa do Simples, MEI e consumidor final, pela base pública de CNPJ.</p></li>
+    <li data-r><h3>Premissas e limites escritos</h3><p>Alíquotas, prazos e o que não entra na conta. Nada escondido, pra você conferir antes de assinar.</p></li>
+    <li data-r><h3>Campo pra sua assinatura</h3><p>O PDF sai com o nome do seu escritório. Quem revisa, assina e apresenta é você.</p></li>
+  </ul>
+</section>
+
+<section class="como" id="como" aria-labelledby="como-t">
+  <h2 class="sr" id="como-t">Como funciona</h2>
+  <ol class="como__etapas" id="etapas">
+    <li class="on">
+      <div class="como__texto">
+        <h3>Primeiro, os XMLs no WhatsApp</h3>
+        <p>Vendas e compras de 3 a 12 meses do cliente, num .zip. Diga o nome da empresa, o anexo do Simples e como quer o nome do escritório no PDF.</p>
+      </div>
+      <div class="como__frag" data-ui>
+        <div class="zap">
+          <p class="zap__arq"><b>xmls-ago-out.zip</b><span>48 notas · 212 KB</span></p>
+          <p class="zap__msg">Metalúrgica Exemplo Ltda, Anexo II. No PDF pode sair Contabilidade Exemplo.</p>
+          <p class="zap__msg zap__msg--nos">Recebido. Hoje ainda você recebe o relatório aqui.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="como__texto">
+        <h3>Depois, a conta item a item</h3>
+        <p>IBS e CBS nas calculadoras de código aberto publicadas pela Receita Federal (regime regular e Simples Nacional) e o regime de cada comprador pela base pública de CNPJ.</p>
+      </div>
+      <div class="como__frag" data-ui>
+        <table class="itens">
+          <thead><tr><th>Nota</th><th>Do outro lado</th><th>Crédito</th></tr></thead>
+          <tbody>
+            <tr><td>Venda</td><td>Empresa fora do Simples</td><td class="sim">aproveita</td></tr>
+            <tr><td>Venda</td><td>MEI</td><td>não aproveita</td></tr>
+            <tr><td>Venda</td><td>Empresa do Simples</td><td>não aproveita</td></tr>
+            <tr><td>Venda</td><td>Consumidor final (CPF)</td><td>não aproveita</td></tr>
+            <tr><td>Compra</td><td>Fornecedor do regime regular</td><td class="sim">gera crédito</td></tr>
+            <tr><td>Compra</td><td>Fornecedor do Simples</td><td>zero</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="como__texto">
+        <h3>Então, o PDF com seu nome</h3>
+        <p>A meta é entregar no mesmo dia útil em que os XMLs chegam. Se for demorar mais, a gente avisa. Os XMLs são apagados logo depois da entrega.</p>
+      </div>
+      <div class="como__frag"><img class="recorte recorte--topo" src="exemplo/pg-1.webp" width="909" height="1286" alt="Cabeçalho do relatório de exemplo: preparado por Contabilidade Exemplo" loading="lazy"></div>
+    </li>
+    <li>
+      <div class="como__texto">
+        <h3>Por fim, você revisa e assina</h3>
+        <p>É uma simulação de apoio. Quem decide e faz a opção é o contador responsável, e a gente nunca fala com o seu cliente.</p>
+      </div>
+      <div class="como__frag"><img class="recorte recorte--fim" src="exemplo/pg-4.webp" width="909" height="1286" alt="Fim do relatório de exemplo: premissas, limites e a linha de data e assinatura do contador responsável" loading="lazy"></div>
+    </li>
   </ol>
-</section>
-
-<section class="exemplo" aria-labelledby="ex-titulo">
-  <h2 class="secao__titulo" id="ex-titulo">O que vem no relatório</h2>
-  <div class="paginas">
-    <a href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener"><img src="exemplo/pg-1.png" alt="Página 1 do relatório de exemplo: resumo com a faixa de resultado por ano" loading="lazy" width="909" height="1286"></a>
-    <a href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener"><img src="exemplo/pg-3.png" alt="Página 3: alíquotas usadas e prazos da opção" loading="lazy" width="909" height="1286"></a>
-    <a href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener"><img src="exemplo/pg-2.png" alt="Página 2: para quem a empresa vende, ponto de equilíbrio e tabela ano a ano" loading="lazy" width="909" height="1286"></a>
+  <div class="como__trilho" id="trilho" hidden>
+    <input type="range" min="0" max="3" step="1" value="0" id="etapa" aria-label="Etapa de como funciona">
+    <ul aria-hidden="true"><li class="on">XMLs</li><li>Conta</li><li>PDF</li><li>Assinatura</li></ul>
   </div>
-  <ul class="lista">
-    <li>Resumo de uma linha por ano: qual caminho tende a favorecer o cliente.</li>
-    <li>DAS, IBS/CBS a pagar, créditos das compras e crédito repassado aos clientes dele, 2027, 2029, 2031 e 2033.</li>
-    <li>Prazos da opção e todas as premissas escritas. Nada escondido.</li>
-  </ul>
+  <p class="como__previa" data-r>Prefere não mandar nota nenhuma? Na <a href="previa/">prévia local</a> os XMLs são lidos no seu navegador e você já vê pra quem o seu cliente vende.</p>
 </section>
 
-<section class="preco" id="preco" aria-labelledby="preco-titulo">
-  <h2 class="secao__titulo" id="preco-titulo">Preço</h2>
-  <div class="cartao">
-    <p class="cartao__valor"><b>R$ 49</b> por relatório</p>
-    <ul>
-      <li>O primeiro grátis, com um cliente real seu</li>
-      <li>PDF com a marca do seu escritório</li>
-      <li>Pix ou cartão, por link do Mercado Pago que a gente manda no WhatsApp</li>
-    </ul>
-    <a class="pilula pilula--acento pilula--g" data-wa="Oi! Quero testar o relatório grátis do Raio-X da Reforma." href="#">Começar pelo grátis</a>
+<section class="preco" id="preco" aria-labelledby="preco-t">
+  <h2 id="preco-t" data-r>Preço</h2>
+  <div class="preco__lista">
+    <div data-r>
+      <h3>O relatório</h3>
+      <dl>
+        <div><dt>Primeiro relatório</dt><dd>grátis</dd><p>Com um cliente real seu. Sem cartão, tudo pelo WhatsApp.</p></div>
+        <div><dt>Do segundo em diante</dt><dd><span data-preco>R$ 49</span></dd><p>Por relatório. Pix ou cartão, por link do Mercado Pago que a gente manda no WhatsApp.</p></div>
+        <div><dt>Mensalidade</dt><dd>não tem</dd><p>Você paga só o relatório que pedir.</p></div>
+      </dl>
+    </div>
+    <div data-r>
+      <h3>Se algo der errado</h3>
+      <dl>
+        <div><dt>Erro nosso</dt><dd>refazemos</dd><p>Arquivo lido errado ou conta trocada: sem custo.</p></div>
+        <div><dt>Pagou e não recebeu</dt><dd>devolvemos</dd><p>O valor integral. Os detalhes estão nos <a href="termos.html">termos</a>.</p></div>
+        <div><dt>Caso não coberto</dt><dd>avisamos</dd><p>Receita acima do sublimite de R$ 3,6 milhões ou empresa sem notas de venda: a gente diz antes, em vez de entregar número ruim.</p></div>
+      </dl>
+    </div>
   </div>
-  <p class="rotulo">Depois de pagar, mande os XMLs no WhatsApp <span data-fone>(35) 98417-5608</span>.</p>
+  <p class="preco__pe" data-r>Pedido e XMLs pelo WhatsApp <span data-fone>(35) 98417-5608</span>. <a data-wa="Oi! Quero testar o relatório grátis do Raio-X da Reforma." href="#preco">Quero meu relatório grátis</a></p>
 </section>
 
-<section class="prazos" aria-labelledby="prazos-titulo">
-  <h2 class="secao__titulo" id="prazos-titulo">Prazos que importam</h2>
-  <ul class="lista">
-    <li><b>De 03/11 a 20/12/2026:</b> quem optou pelo IBS/CBS por fora até 30/10 ainda pode cancelar. O cancelamento é irretratável (Res. CGSN 194/2026).</li>
-    <li><b>Março de 2027:</b> próxima janela de opção, com efeitos no 2º semestre de 2027 (LC 123, art. 13, §10; os dias exatos saem em resolução do CGSN).</li>
-  </ul>
+<section class="faq" aria-labelledby="faq-t">
+  <div class="faq__linha"><h2 id="faq-t" data-r>Perguntas</h2></div>
+  <div class="faq__linha" data-r><h3>O relatório decide pelo meu cliente?</h3><p>Não. É uma simulação de apoio. Quem decide e faz a opção é o contador responsável; o PDF traz espaço pra sua assinatura.</p></div>
+  <div class="faq__linha" data-r><h3>De onde vêm os números?</h3><p>O IBS e a CBS de cada item saem das calculadoras de código aberto publicadas pela Receita Federal. O DAS sai das tabelas da LC 123/2006. A CBS de 2027 usa os 11,3% calculados pelo TCU (o Senado fixa a alíquota até 15/12/2026); o IBS cheio a partir de 2029 ainda é estimativa. Tudo isso vem escrito no relatório.</p></div>
+  <div class="faq__linha" data-r><h3>A opção já fechou. Serve pra quê?</h3><p><span data-ate="2026-12-20">Pra duas coisas. Se você optou pelo IBS/CBS por fora pra algum cliente, dá pra cancelar até 20/12/2026, e o cancelamento é irretratável: o relatório mostra se a opção se sustenta com os compradores que ele tem hoje. E a </span><span data-desde="2026-12-21">A </span>próxima janela de opção é em março de 2027: dá pra chegar com a conta de cada cliente pronta.</p></div>
+  <div class="faq__linha" data-r><h3>Já existe simulador grátis. Por que pagar?</h3><p>Os simuladores grátis da Receita e do Sebrae pedem que você digite quanto das vendas vai pra quem aproveita crédito. É justamente o número que decide. A gente tira isso dos XMLs e da base pública de CNPJ, comprador por comprador, e entrega o PDF com o nome do seu escritório.</p></div>
+  <div class="faq__linha" data-r><h3>Vocês vão falar com o meu cliente?</h3><p>Nunca. A gente só atende escritório de contabilidade. Se o dono de uma empresa nos procurar, pedimos que fale com o contador dele. O PDF sai com o nome do seu escritório e quem apresenta é você.</p></div>
+  <div class="faq__linha" data-r><h3>O que acontece com os XMLs?</h3><p>Usamos só pra gerar o relatório e apagamos logo depois da entrega. Não vendemos nem compartilhamos nada. Os detalhes estão em <a href="termos.html">termos e privacidade</a>.</p></div>
+  <div class="faq__linha" data-r><h3>Quais clientes valem a pena?</h3><p>Principalmente os do Simples que vendem pra outras empresas (CNPJ). Pra quem vende só pra consumidor final, a conta tende a mostrar que o DAS basta.</p></div>
+  <div class="faq__linha" data-r><h3>Quanto tempo leva?</h3><p>A meta é entregar no mesmo dia útil em que os XMLs chegam. Se for demorar mais, a gente avisa no WhatsApp.</p></div>
 </section>
 
-<section class="faq" aria-labelledby="faq-titulo">
-  <h2 class="secao__titulo" id="faq-titulo">Perguntas</h2>
-  <details><summary>O relatório decide pelo meu cliente?</summary><p>Não. É uma simulação de apoio. Quem decide e faz a opção é o contador responsável; o PDF traz espaço pra sua assinatura.</p></details>
-  <details><summary>De onde vêm os números?</summary><p>O IBS e a CBS de cada item saem das calculadoras de código aberto publicadas pela Receita Federal. O DAS sai das tabelas da LC 123/2006. A CBS de 2027 usa os 11,3% calculados pelo TCU (o Senado confirma até 15/12/2026); o IBS cheio a partir de 2029 ainda é estimativa. Tudo isso vem escrito no relatório.</p></details>
-  <details><summary>Já existe simulador grátis. Por que pagar?</summary><p>Os simuladores pedem que você digite quanto das vendas vai pra quem aproveita crédito. É justamente o número que decide. A gente tira isso dos XMLs e da base pública de CNPJ, cliente por cliente, e entrega o PDF com a sua marca.</p></details>
-  <details><summary>O que acontece com os XMLs?</summary><p>Usamos só pra gerar o relatório e apagamos logo depois da entrega. Não vendemos nem compartilhamos nada.</p></details>
-  <details><summary>Quais clientes valem a pena?</summary><p>Principalmente os do Simples que vendem pra outras empresas (CNPJ). Pra quem vende só pra consumidor final, o relatório costuma confirmar que o DAS basta.</p></details>
-  <details><summary>Quanto tempo leva?</summary><p>Normalmente no mesmo dia útil em que os XMLs chegam.</p></details>
-</section>
-
-<section class="fim">
-  <h2>Teste com 3 clientes seus, sem pagar nada.</h2>
-  <a class="pilula pilula--acento pilula--g" data-wa="Oi! Quero testar os 3 relatórios grátis do Raio-X da Reforma." href="#">Quero 3 relatórios grátis</a>
+<section class="fim" aria-labelledby="fim-t">
+  <h2 class="fim__t" id="fim-t"><span>Simples ou</span><span>por fora?</span></h2>
+  <div class="fim__meio">
+    <div class="fim__botoes">
+      <a class="btn" href="exemplo/Raio-X%20Reforma%20-%20EXEMPLO.pdf" target="_blank" rel="noopener">Ver o exemplo em PDF</a>
+      <span>ou</span>
+      <a class="btn" data-wa="Oi! Quero testar o relatório grátis do Raio-X da Reforma." href="#preco">Pedir o meu grátis</a>
+    </div>
+    <p>O primeiro relatório é por nossa conta, com um cliente real seu.</p>
+  </div>
 </section>
 
 </main>
 
 <footer class="rodape">
-  <p><b>Raio-X da Reforma</b> · simulação de apoio para contadores · WhatsApp <span data-fone>(35) 98417-5608</span></p>
-  <p>Responsável: <span data-vendedor>(em definição)</span></p>
-  <p><a href="termos.html">Termos, reembolso e privacidade (LGPD)</a> · Este site não usa cookies nem rastreamento.</p>
-  <p class="rotulo">Calculadoras: <a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular" target="_blank" rel="noopener">regime regular</a> e <a href="https://github.com/ReceitaFederal/calculadora-rtc-simples-nacional" target="_blank" rel="noopener">Simples Nacional</a> da Receita Federal (licença MIT). Não somos a Receita Federal nem falamos em nome dela.</p>
+  <div class="rodape__cols">
+    <div><p><b>Raio-X da Reforma</b></p><p>Simulação de apoio para contadores.</p><p>Responsável: <span data-vendedor>(em definição)</span></p></div>
+    <div><p><b>Nesta página</b></p><p><a href="#exemplo">O exemplo</a></p><p><a href="#como">Como funciona</a></p><p><a href="#preco">Preço</a></p><p><a href="previa/">Prévia local grátis</a></p></div>
+    <div><p><b>Contato</b></p><p>WhatsApp <a data-wa="Oi! Vim pelo site do Raio-X da Reforma." href="#preco"><span data-fone>(35) 98417-5608</span></a></p><p><a href="termos.html">Termos, reembolso e privacidade (LGPD)</a></p><p>Este site não usa cookies nem rastreamento.</p></div>
+    <div><p><b>Calculadoras</b></p><p><a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular" target="_blank" rel="noopener">Regime regular</a> e <a href="https://github.com/ReceitaFederal/calculadora-rtc-simples-nacional" target="_blank" rel="noopener">Simples Nacional</a>, da Receita Federal (licença MIT).</p><p>Não somos a Receita Federal nem falamos em nome dela.</p></div>
+  </div>
+  <p class="rodape__nome" aria-hidden="true">
+    <svg viewBox="0 0 1000 118" role="presentation" focusable="false"><text x="500" y="92" text-anchor="middle" textLength="992" lengthAdjust="spacing">RAIO-X DA REFORMA</text></svg>
+  </p>
+  <p class="rodape__legal">Fontes Fraunces e Hanken Grotesk (licença SIL OFL), servidas por este site.</p>
 </footer>
 
 <script src="config.js"></script>
