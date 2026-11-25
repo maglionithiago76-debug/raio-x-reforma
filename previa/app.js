@@ -6,6 +6,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var SOURCES = ["https://brasilapi.com.br/api/cnpj/v1/", "https://minhareceita.org/"];
   var GAP_MS = 350, TOP_BUYERS = 15;
+  var ASK_TITLE = $("t-pedido").textContent;
   var state = null;       // {texts, read, regimes, names, demo, run}
   var portfolio = [];     // clients seen in this session (memory only)
   var runId = 0;
@@ -113,6 +114,9 @@
     $("n-vendas").textContent = brl(s.totalYear);
     $("n-vendas-nota").textContent = "vendas por ano (projeção: " + s.months.length + (s.months.length === 1 ? " mês" : " meses") + " × " + s.factor.toFixed(1).replace(".", ",") + ")";
     $("n-incerto").textContent = pct(s.shareUnknown);
+    // the percentage only goes in the title when it can be trusted: lookup finished and at most 20% of sales unconsulted
+    $("t-pedido").textContent = state.done && s.shareUnknown <= 0.2 && Math.round(s.shareCredit * 100) > 0
+      ? "3. " + pct(s.shareCredit) + " das vendas vão pra empresa fora do Simples. A partir de quanto compensa pra esta empresa?" : ASK_TITLE;
 
     var top = Math.max.apply(null, C.GROUPS.map(function (g) { return Math.abs(s.groups[g] || 0); }).concat([1]));
     fill("t-grupos", C.GROUPS.filter(function (g) { return s.groups[g]; }).sort(function (a, b) { return s.groups[b] - s.groups[a]; }).map(function (g) {
